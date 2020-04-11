@@ -1,8 +1,8 @@
 export const defaults = {
-	isLoggedIn: localStorage.getItem("token") != null ? true : false,
+	isLoggedIn: Boolean(localStorage.getItem("token")) || false,
 };
 
-export default resolvers = {
+export const resolvers = {
 	Mutation: {
 		logUserIn: (_, { token }, { cache }) => {
 			localStorage.setItem("token", token);
